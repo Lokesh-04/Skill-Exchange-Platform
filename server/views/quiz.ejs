@@ -404,7 +404,7 @@ footer button.show{
             <div class="title">Quiz Application</div>
             <div class="timer">
                 <div class="time_left_txt">Time Left</div>
-                <div class="timer_sec">90</div>
+                <div class="timer_sec">10</div>
             </div>
             <div class="time_line"></div>
         </header>
@@ -441,8 +441,8 @@ footer button.show{
 
 
     <script>
-        //selecting all required elements
-const info_box = document.querySelector(".info_box");
+      //selecting all required elements
+      const info_box = document.querySelector(".info_box");
 const continue_btn = info_box.querySelector(".buttons .restart");
 const quiz_box = document.querySelector(".quiz_box");
 const result_box = document.querySelector(".result_box");
@@ -460,11 +460,11 @@ continue_btn.onclick = ()=>{
     quiz_box.classList.add("activeQuiz"); //show quiz box
     showQuetions(0); //calling showQestions function
     queCounter(1); //passing 1 parameter to queCounter
-    startTimer(90); //calling startTimer function
+    startTimer(10); //calling startTimer function
     startTimerLine(0); //calling startTimerLine function
 }
 
-let timeValue =  90;
+let timeValue =  10;
 let que_count = 0;
 let que_numb = 1;
 let userScore = 0;
@@ -584,19 +584,21 @@ function showResult(){
     quiz_box.classList.remove("activeQuiz"); //hide quiz box
     result_box.classList.add("activeResult"); //show result box
     const scoreText = result_box.querySelector(".score_text");
-    if (userScore > 3){ // if user scored more than 3
-        //creating a new span tag and passing the user score number and total question number
-        let scoreTag = '<span>congrats! , You got <p>'+ userScore +'</p> out of <p>'+ questions.length +'</p></span>';
+    let scoreTag = '<span>congrats! , You scored more than 85%.' + "<br>" + 'You have achieved the "C Language" skill.' +'</span>';
         scoreText.innerHTML = scoreTag;  //adding new span tag inside score_Text
-    }
-    else if(userScore > 1){ // if user scored more than 1
-        let scoreTag = '<span>and nice , You got <p>'+ userScore +'</p> out of <p>'+ questions.length +'</p></span>';
-        scoreText.innerHTML = scoreTag;
-    }
-    else{ // if user scored less than 1
-        let scoreTag = '<span>and sorry , You got only <p>'+ userScore +'</p> out of <p>'+ questions.length +'</p></span>';
-        scoreText.innerHTML = scoreTag;
-    }
+    // if (userScore > 3){ // if user scored more than 3
+    //     //creating a new span tag and passing the user score number and total question number
+    //     let scoreTag = '<span>congrats! , You got <p>'+ userScore +'</p> out of <p>'+ questions.length +'</p></span>';
+    //     scoreText.innerHTML = scoreTag;  //adding new span tag inside score_Text
+    // }
+    // else if(userScore > 1){ // if user scored more than 1
+    //     let scoreTag = '<span>and nice , You got <p>'+ userScore +'</p> out of <p>'+ questions.length +'</p></span>';
+    //     scoreText.innerHTML = scoreTag;
+    // }
+    // else{ // if user scored less than 1
+    //     let scoreTag = '<span>and sorry , You got only <p>'+ userScore +'</p> out of <p>'+ questions.length +'</p></span>';
+    //     scoreText.innerHTML = scoreTag;
+    // }
 }
 
 function startTimer(time){
@@ -629,7 +631,7 @@ function startTimer(time){
 }
 
 function startTimerLine(time){
-    counterLine = setInterval(timer, 90);
+    counterLine = setInterval(timer, 29);
     function timer(){
         time += 1; //upgrading time value with 1
         time_line.style.width = time + "px"; //increasing width of time_line with px by time value
@@ -646,74 +648,31 @@ function queCounter(index){
 }
 
         // Questions array
-        let questions = [];
-        //[
-//   {
-//     numb: 1,
-//     question: "What is the syntax to declare an integer variable in C?",
-//     answer: "int",
-//     options: ["float", "int", "variable", "integer"]
-//   },
-//   {
-//     numb: 2,
-//     question: "How do you print 'Hello, World!' in C?",
-//     answer: 'printf("Hello, World!");',
-//     options: [
-//       'print("Hello, World!");',
-//       'cout << "Hello, World!";',
-//       'System.out.println("Hello, World!");',
-//       'printf("Hello, World!")'
-//     ]
-//   },
-//   {
-//     numb: 3,
-//     question: "Which operator is used for assigning a value to a variable in C?",
-//     answer: "=",
-//     options: ["+", "-", "*", "="]
-//   },
-//   {
-//     numb: 4,
-//     question: "What is the format specifier for printing a float in C?",
-//     answer: "%f",
-//     options: ["%d", "%s", "%f", "%c"]
-//   },
-//   {
-//     numb: 5,
-//     question: "Which header file is required for input and output operations in C?",
-//     answer: "<stdio.h>",
-//     options: ["<stdlib.h>", "<io.h>", "<stdio.h>", "<file.h>"]
-//   },
-//   {
-//     numb: 6,
-//     question: "What is the result of 2 + 3 * 4 in C?",
-//     answer: "14",
-//     options: ["14", "20", "18", "25"]
-//   },
-//   {
-//     numb: 7,
-//     question: "In C, which keyword is used to exit a loop early?",
-//     answer: "break",
-//     options: ["continue", "exit", "return", "break"]
-//   },
-//   {
-//     numb: 8,
-//     question: "What is the size of an integer variable in C?",
-//     answer: "4 bytes",
-//     options: ["2 bytes", "4 bytes", "8 bytes", "Depends on the system"]
-//   },
-//   {
-//     numb: 9,
-//     question: "Which function is used to allocate memory dynamically in C?",
-//     answer: "malloc()",
-//     options: ["calloc()", "new()", "malloc()", "alloc()"]
-//   },
-//   {
-//     numb: 10,
-//     question: "Which data type is used to store a single character in C?",
-//     answer: "char",
-//     options: ["string", "character", "char", "byte"]
-//   }
-// ];
+        let questions = [
+  {
+    numb: 1,
+    question: "What is the syntax to declare an integer variable in C?",
+    answer: "int",
+    options: ["float", "int", "variable", "integer"]
+  },
+  {
+    numb: 2,
+    question: "How do you print 'Hello, World!' in C?",
+    answer: 'printf("Hello, World!");',
+    options: [
+      'print("Hello, World!");',
+      'cout << "Hello, World!";',
+      'System.out.println("Hello, World!");',
+      'printf("Hello, World!")'
+    ]
+  },
+  {
+    numb: 3,
+    question: "Which operator is used for assigning a value to a variable in C?",
+    answer: "=",
+    options: ["+", "-", "*", "="]
+  }
+];
 
 
     </script>

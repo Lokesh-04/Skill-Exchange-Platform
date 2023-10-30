@@ -100,6 +100,17 @@ app.get("/update-profile", async (req, res) => {
   }
 });
 
+// app.put("/update-profile", (req, res) =>{
+//   if (req.isAuthenticated()) {
+//     const currentUser = req.user;
+//     res.render("update-profile", {
+//       currentUser
+//     });
+//   } else {
+//     res.redirect("/login");
+//   }
+// })
+
 app.post("/update-profile", (req, res) => {
   if (req.isAuthenticated()) {
     // Retrieve the user details from the request object
@@ -153,6 +164,26 @@ app.get("/playground", (req, res) =>{
   } else {
     res.redirect("/login");
   }});
+
+//   app.get("/lobby", (req, res) =>{
+//     const currentUser = req.user;
+//     if (req.isAuthenticated()) {
+//       res.render("lobby", {
+//         currentUser
+//       });
+//     } else {
+//       res.redirect("/login");
+//     }});
+
+    app.get("/lobby", (req, res) =>{
+      const currentUser = req.user;
+      if (req.isAuthenticated()) {
+        res.render("lobby", {
+          currentUser
+        });
+      } else {
+        res.redirect("/login");
+      }});
 
 //email notifications on clicking connect button on the user profile
 

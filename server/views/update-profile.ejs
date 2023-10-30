@@ -23,7 +23,6 @@
 
       <div class="main-content">
 
-        <form action="/update-profile" method="post">
         <!-- Main Content -->
         <h1>Edit Profile</h1>
         <div class="profile-edit-container">
@@ -56,8 +55,7 @@
 
               <% currentUser.skills.forEach(skill=> { %>
                 <div class="selected-role" id="<%=skill%>">
-                  <%=skill%><i style="margin-left: 10px; font-size: small; cursor: pointer;" id="<%=skill%>" onclick="delete('<%=skill%>')"
-                      class="fa-solid fa-xmark"></i>
+                  <%=skill%>
                 </div>
                 <% }); %>
 
@@ -92,9 +90,8 @@
             </div>
           </div>
           <!-- Add more form fields for other profile details as needed -->
-          <button type="button" id="update-profile" class="btn">Save</button>
+          <button type="button" id="update-profile-btn" class="btn">Save</button>
         </div>
-      </form>
       </div>
 
       <% } else { %>

@@ -19,58 +19,65 @@
         <%- include('./partials/sidebar') %>
 
         <div class="main-content">
-            <!-- Main Content -->
-            <h1>Profile</h1>
+
             <div class="profile-edit-container">
                 <form action="/update-profile" method="get">
-
                     <!-- profile picture of a user -->
-
-                    <div class="form-group">
-                        <label for="name">Name:</label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name"
-                            value="<%= requestedUser.username %>" disabled="disabled">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="name">Email:</label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name"
-                            value="<%= requestedUser.email %>" disabled="disabled">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="skills">Skills:</label>
-                        <div class="collection">
-                            <% requestedUser.skills.forEach(skill=> { %>
-                                <div class="chip">
-                                    <%= skill %>
-                                </div>
-                                <% }); %>
+                    <div class="rounded-picture">
+                        <div class="pic">
+                            <div class="user-icon">
+                                <img src="\images\default_user_pic.png">
+                            </div>
+                        </div>
+                        
+                        <div class="buttons">
+                            <button type="submit" class="btn save-button">Connect</button>
+    
+                            <i style="margin: 20px;" class="fa-regular fa-pen-to-square"></i>
+                            
                         </div>
                     </div>
-
-                    <div class="form-group">
-                        <label for="skills">Interests:</label>
-                        <div class="collection">
-                            <% requestedUser.interests.forEach(interest=> { %>
-                                <div class="chip">
-                                    <%= interest %>
-                                </div>
-                                <% }); %>
+                    <div class="left">
+                        <div class="form-group">
+                            <h3 class="user-name"> <%= requestedUser.username %> </h3>
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="name"><i class="fa-regular fa-envelope"></i>
+                               <%= requestedUser.email %> </label>
+                        </div>
+                        <div class="form-group connections">
+                            <span>11</span> Connections
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="skills">Skills:</label>
+                            
+                            <div class="collection">  
+                                <% requestedUser.skills.forEach(skill=> { %>
+                                    <div class="chip"> <%= skill %> </div>
+                                    </div>
+                                    <% }); %>
+                            </div>
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="skills">Interests:</label>
+                            <div class="collection">  
+                                <% requestedUser.interests.forEach(interest=> { %>
+                                    <div class="chip"> <%= interest %> </div>
+                                    </div>
+                                    <% }); %>
+                            </div>
                         </div>
                     </div>
-
-                    <% if(requestedUser.username == currentUser.username){ %>
-                        <button type="submit" class="btn save-button">Edit Profile</button>
-                    <% } %>
+                    
+        
+                    <!-- Other profile information -->
+                    <!-- ... (your existing form fields) ... -->
+                </form>
             </div>
-            <!-- Add more form fields for other profile details as needed -->
-
            
-
-           
-            </form>
-        </div>
         </div>
         <% } else { %>
             <p>No such user Exists</p>
@@ -78,3 +85,5 @@
 
 
             <%- include('./partials/footer') %>
+
+        
