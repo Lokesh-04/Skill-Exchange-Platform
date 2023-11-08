@@ -15,7 +15,11 @@ const app = express();
 const port = 3001;
 
 // Connect to MongoDB using Mongoose
-mongoose.connect("mongodb://127.0.0.1:27017/skillxDB", {
+// mongoose.connect("mongodb://127.0.0.1:27017/skillxDB", {
+//   useNewUrlParser: true,
+// });
+
+mongoose.connect("mongodb+srv://kancharapulokeshkumar:Th6LyyEJy5pu2rUG@cluster0.gdwqcnq.mongodb.net/skillxDB", {
   useNewUrlParser: true,
 });
 
