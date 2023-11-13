@@ -6,7 +6,7 @@ const port = process.env.PORT || 3000;
 const usersData = [
   {
     id: 8,
-    name: 'Akash Sharma',
+    name: 'Aksh Sharma',
     email: 'akashsharma@example.com',
     skills: 'Python, Django, Flask',
     interests: 'AI, Machine Learning, Cricket',
