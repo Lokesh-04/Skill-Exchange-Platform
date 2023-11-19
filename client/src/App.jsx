@@ -3,11 +3,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Home from './components/Pages/Home';
-import Chat from './components/Pages/Chat';
-import Profile from './components/Pages/Profile';
-import Playground from './components/Pages/Playground';
-import UserProfile from './components/Pages/UserProfile'; // Import the UserProfile component
+import Home from './Pages/Home';
+import Chat from './Pages/Chat';
+import Profile from './Pages/Profile';
+import Playground from './Pages/Playground';
+import UserProfile from './Pages/UserProfile'; // Import the UserProfile component
 
 // css
 import './css/Navbar.css';
