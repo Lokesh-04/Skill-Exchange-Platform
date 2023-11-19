@@ -1,30 +1,34 @@
+// App.jsx
+
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './components/Pages/Home';
 import Chat from './components/Pages/Chat';
-import Playground from './components/Pages/Playground';
 import Profile from './components/Pages/Profile';
+import Playground from './components/Pages/Playground';
+import UserProfile from './components/Pages/UserProfile'; // Import the UserProfile component
 
-//css
+// css
 import './css/Navbar.css';
 import './css/Home.css';
 import './css/Profile.css';
-
+import './css/Invitation.css';
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <Router>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/chat" element={<Chat />} />
         <Route path="/Playground" element={<Playground />} />
-        <Route path="/Profile" element={<Profile />} />
+        <Route path="/profile" element={<Profile/>}/>
+        <Route path="/users/:userId" element={<Profile />} />
 
-
+        <Route path="/Profile/:userId" element={<UserProfile />} />
       </Routes>
-    </BrowserRouter>
+    </Router>
   );
 };
 
